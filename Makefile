@@ -1,0 +1,41 @@
+#* ************************************************************************** *#
+#*                                                                            *#
+#*                                                        :::      ::::::::   *#
+#*   Makefile                                           :+:      :+:    :+:   *#
+#*                                                    +:+ +:+         +:+     *#
+#*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        *#
+#*                                                +#+#+#+#+#+   +#+           *#
+#*   Created: 2016/10/06 23:08:58 by beerus            #+#    #+#             *#
+#*   Updated: 2016/10/25 02:50:29 by beerus           ###   ########.fr       *#
+#*                                                                            *#
+#* ************************************************************************** *#
+
+NAME = fillit
+
+NAME_H = fillit.a
+
+SRC_NAME = ft_check_file.c 		 \
+		   ft_convert.c	   		 \
+		   ft_main.c
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
+
+all:
+	@echo "Conversion des sources en objet"
+	@gcc -Wall -Werror -Wextra -c $(SRC_NAME)
+	@echo "Link des objets"
+	@ar rc $(NAME_H) $(OBJ_NAME)
+	@echo "Indexation de la librairie"
+	@ranlib $(NAME_H)
+	@echo "Compilation des fichiers"
+	@gcc -Wall -Werror -Wextra libft.a $(SRC_NAME) $(NAME_H) -o $(NAME)
+
+clean:
+	@echo "Supression des objets"
+	@rm -rf $(OBJ_NAME)
+
+fclean: clean
+	@echo "Supression de l'executable"
+	@rm -rf $(NAME)
+
+re: fclean all
