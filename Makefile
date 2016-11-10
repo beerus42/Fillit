@@ -6,7 +6,7 @@
 #*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/10/06 23:08:58 by beerus            #+#    #+#             *#
-#*   Updated: 2016/10/25 02:50:29 by beerus           ###   ########.fr       *#
+#*   Updated: 2016/11/10 05:25:45 by beerus           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -37,5 +37,6 @@ clean:
 fclean: clean
 	@echo "Supression de l'executable"
 	@rm -rf $(NAME)
+	@rm -rf $(NAME_H)
 
 re: fclean all

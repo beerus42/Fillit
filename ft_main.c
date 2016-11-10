@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/10/25 02:58:18 by beerus           ###   ########.fr       */
+/*   Updated: 2016/11/09 22:08:35 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int    		main(void)
 	int			i;
 
 	ret = 0;
-	nb_t = 1;
+	nb_t = 0;
 	i = 0;
 	if(!(buff = (char*)malloc(sizeof(char) * 1000)))
 		return (0);
