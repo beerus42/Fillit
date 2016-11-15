@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/09 22:08:35 by beerus           ###   ########.fr       */
+/*   Updated: 2016/11/15 16:30:02 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int    		main(void)
 	int    		nb_t;
 	char		**tab;
 	int			i;
+	char	tabtm[5][5];
+
 
 	ret = 0;
 	nb_t = 0;
@@ -48,6 +50,8 @@ int    		main(void)
 		printf("0\n");
 	if (close(fd) == -1)
 		printf("close failed\n");
+	while (tab[i])
+		printf("%s\n", tab[i++]);
 	free(tab);
 	return (0);
 }

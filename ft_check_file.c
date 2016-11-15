@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/08 20:58:43 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/09 22:35:08 by beerus           ###   ########.fr       */
+/*   Updated: 2016/11/15 15:49:16 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void		check_tetriminos_2(char *tab, int j, int *count_ttmn)
 {
 	if (tab[j + 1] && tab[j + 1] == 35)
 		(*count_ttmn)++;
-  	if (tab[j + 5] && tab[j + 5] == 35)
+	if (tab[j + 5] && tab[j + 5] == 35)
 		(*count_ttmn)++;
 }
 
-int		check_tetriminos(char **tab)
+int			check_tetriminos(char **tab)
 {
 	int		i;
 	int		j;
@@ -45,7 +45,7 @@ int		check_tetriminos(char **tab)
 	return (1);
 }
 
-int		check_file_2(char *file, int *i, int *count_wd_pt, int *count_bn)
+int			check_file_2(char *file, int *i, int *count_wd_pt, int *count_bn)
 {
 	if (file[*i] == '#' || file[*i] == '.')
 		(*count_wd_pt)++;
@@ -66,7 +66,7 @@ int		check_file_2(char *file, int *i, int *count_wd_pt, int *count_bn)
 	return (1);
 }
 
-int		check_file(char *file, int *nb_tetriminos)
+int			check_file(char *file, int *nb_tetriminos)
 {
 	int		i;
 	int		count_wd_pt;

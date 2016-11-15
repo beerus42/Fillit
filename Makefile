@@ -16,6 +16,7 @@ NAME_H = fillit.a
 
 SRC_NAME = ft_check_file.c 		 \
 		   ft_convert.c	   		 \
+		   ft_tab_tt.c			 \
 		   ft_main.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
