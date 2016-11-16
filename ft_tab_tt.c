@@ -6,14 +6,15 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/11/15 17:49:53 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/16 15:42:58 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "../libft/libft.h"
+#include <stdlib.h>
 
-tt_list		*add_righ(tt_list *list)
+tt_list		*add_right(tt_list *list)
 {
 	tt_list *new;
 	tt_list *begin;
@@ -25,11 +26,12 @@ tt_list		*add_righ(tt_list *list)
 		list = list->next;
 	list->next = new;
 	new->next = NULL;
+	new->prev = list;
 	list = begin;
 	return (list);
 }
 
-tt_list		*reconvert(char **tab, int *nb_t)
+tt_list		*reconvert(int nb_t)
 {
 	tt_list 	*new;
 	tt_list 	*begin;
@@ -41,8 +43,12 @@ tt_list		*reconvert(char **tab, int *nb_t)
 	new->next = NULL;
 	new->prev = NULL;
 	begin = new;
-	while (i <= *nb_t)
+	while (i < nb_t)
 	{
+		new = add_right(new);
 		new = new->next;
+		i++;
 	}
+	new = begin;
+	return (new);
 }
