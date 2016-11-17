@@ -6,14 +6,14 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 23:47:25 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/16 16:47:53 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/17 15:21:41 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "fillit.h"
 #include <stdlib.h>
-/*
+
 char	**reconvert(char *tab)
 {
 	char	**new;
@@ -21,15 +21,25 @@ char	**reconvert(char *tab)
 	int		j;
 
 	i = 0;
-	j = 0;
-	if (!(new = (char**)malloc(sizeof(char*) * (4 + 1)))
+	if (!(new = (char**)malloc(sizeof(char*) * (4 + 1))))
 		return (NULL);
-	while (tab[i])
+	while (i < 4)
 	{
-		
+		if (!(new[i] = (char*)malloc(sizeof(char) * (4 + 1))))
+			return (NULL);
+		j = 0;
+		while (j < 4)
+		{
+			new[i][j] = tab[i];
+			j++;
+		}
+		i++;
+		new[i][j] = '\0';
 	}
+	new[i] = 0;
+	return (new);
 }
-*/
+
 char	*place_tetriminos(char *tmp, char *file, int begin, int lenght)
 {
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/16 15:45:41 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/17 15:20:40 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int    		main(void)
 	int    		nb_t;
 	char		**tab;
 	int			i;
+	tt_list		*new;
+
 
 
 	ret = 0;
@@ -49,8 +51,12 @@ int    		main(void)
 		printf("0\n");
 	if (close(fd) == -1)
 		printf("close failed\n");
-//	while (tab[i])
-		printf("%s\n", tab[i]);
+	new = in_ttmn(nb_t, tab);
+	while (new)
+	{
+		printf("%s\n", new->ttmn);
+		new = new->next;
+	}
 	free(tab);
 	return (0);
 }

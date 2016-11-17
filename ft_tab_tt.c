@@ -6,13 +6,29 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/11/16 15:42:58 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/17 15:23:03 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
+
+tt_list		*in_ttmn(int nb_t, char **buff)
+{
+	int		i;
+	tt_list	*new;
+
+	i = 0;
+	new = list_ttmn(nb_t);
+	while (buff[i])
+	{
+		new->ttmn = reconvert(buff[i]);
+	   	i++;
+		new = new->next;
+	}
+	return (new);
+}
 
 tt_list		*add_right(tt_list *list)
 {
@@ -31,7 +47,7 @@ tt_list		*add_right(tt_list *list)
 	return (list);
 }
 
-tt_list		*reconvert(int nb_t)
+tt_list		*list_ttmn(int nb_t)
 {
 	tt_list 	*new;
 	tt_list 	*begin;
