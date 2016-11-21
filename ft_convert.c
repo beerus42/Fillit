@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 23:47:25 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/17 15:21:41 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/21 18:24:56 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 char	**reconvert(char *tab)
 {
-	char	**new;
+	char	*new;
 	int		i;
 	int		j;
 
@@ -33,8 +33,8 @@ char	**reconvert(char *tab)
 			new[i][j] = tab[i];
 			j++;
 		}
-		i++;
 		new[i][j] = '\0';
+		i++;
 	}
 	new[i] = 0;
 	return (new);
