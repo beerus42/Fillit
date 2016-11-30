@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/11/21 15:52:57 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/28 15:36:25 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@ tt_list		*in_ttmn(int nb_t, char **buff)
 {
 	int		i;
 	tt_list	*new;
+	tt_list	*begin;
 
 	i = 0;
 	new = list_ttmn(nb_t);
+	begin = new;
 	while (buff[i])
 	{
 		new->ttmn = reconvert(buff[i]);
 	   	i++;
 		new = new->next;
 	}
+	new = begin;
 	return (new);
 }
 

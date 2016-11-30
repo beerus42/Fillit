@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 23:47:25 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/21 18:24:56 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/26 16:02:11 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 
 char	**reconvert(char *tab)
 {
-	char	*new;
+	char	**new;
 	int		i;
 	int		j;
+	int		k;
 
 	i = 0;
+	k = 0;
 	if (!(new = (char**)malloc(sizeof(char*) * (4 + 1))))
 		return (NULL);
 	while (i < 4)
@@ -28,9 +30,9 @@ char	**reconvert(char *tab)
 		if (!(new[i] = (char*)malloc(sizeof(char) * (4 + 1))))
 			return (NULL);
 		j = 0;
-		while (j < 4)
+		while (j < 5)
 		{
-			new[i][j] = tab[i];
+			new[i][j] = tab[k++];
 			j++;
 		}
 		new[i][j] = '\0';

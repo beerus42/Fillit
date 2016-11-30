@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/17 15:23:14 by liton            ###   ########.fr       */
+/*   Updated: 2016/11/30 16:07:49 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct 	b_list
 {
-	int				**pos;
+	int				pos[4][2];
 	char			**ttmn;
 	char			letter;
 	struct 	b_list 	*next;
@@ -35,4 +35,5 @@ char		**reconvert(char *tab);
 tt_list		*in_ttmn(int nb_t, char **buff);
 tt_list		*add_right(tt_list *list);
 tt_list		*list_ttmn(int nb_t);
+tt_list		*ft_add_letters(tt_list *list);
 #endif
