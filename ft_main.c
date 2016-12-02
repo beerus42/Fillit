@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/11/30 15:58:42 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/02 16:49:21 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ int    		main(void)
 		printf("close failed\n");
 	new = in_ttmn(nb_t, tab);
 	new = ft_add_letters(new);
+	while (new)
+	{
+		ft_display_tab(new->ttmn);
+		new = new->next;
+	}
 	free(tab);
 	return (0);
 }
