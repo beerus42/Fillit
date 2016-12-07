@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/07 18:37:36 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/07 18:51:17 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ tt_list		*ft_add_pos(tt_list *list)
 	list = begin;
 	return (list);
 }
-
 
 tt_list		*ft_add_letters(tt_list *list)
 {
