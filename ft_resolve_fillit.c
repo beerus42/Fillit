@@ -6,42 +6,30 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:52:21 by liton             #+#    #+#             */
-/*   Updated: 2016/12/02 18:00:16 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/07 18:37:45 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "fillit.h"
 
-char		**put_tetriminos(tt_list *list, char **map, int i, int j)
+char	**put_tetriminos(char **map, tt_list *list)
 {
-	int		good;
 	int		i;
 	int		j;
+	int		count;
 
-	good = 1;
 	i = 0;
 	j = 0;
-	while (good)
+	count = 0;
+	while (count != 4)
 	{
-		map[i][j] = new->ttmn[pos[0][0]][pos[0][1]];
-	}
-}
-
-char		**resolve_fillit(tt_list *list, char **map)
-{
-	tt_list 	*begin
-	int			i;
-	int			j;
-
-	begin = list;
-	i = 0;
-	j = 0;
-	while (list)
-	{
-		if (map[i][j] && map[i][j] == '.')
+		if (map[i][j] == '.')
 		{
-		
+			map[i][j] = list->letter;
+			count++;
 		}
+		i++;
 	}
+	return (map);
 }

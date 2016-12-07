@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 15:43:03 by liton             #+#    #+#             */
-/*   Updated: 2016/12/02 16:52:11 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/07 15:53:35 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 #include "fillit.h"
 #include <stdlib.h>
 
-char	**ft_map(void)
+char	**ft_map(int size)
 {
 	char	**map;
 	int		i;
 
-	i = 0;
-	if (!(map = (char**)malloc(sizeof(char*) * (29 + 1))))
+	i = -1;
+	if (!(map = (char**)malloc(sizeof(char*) * (size + 1))))
 		return (NULL);
-	while (i < 29)
+	while (++i < size)
 	{
-		map[i] = ft_strnew(29);
-		map[i] = ft_memset(map[i], '.', 29);
-		i++;
+		map[i] = ft_strnew(size);
+		map[i] = ft_memset(map[i], '.', size);
 	}
 	map[i] = 0;
 	return (map);

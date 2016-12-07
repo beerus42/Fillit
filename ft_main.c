@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/02 16:49:21 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/07 18:37:49 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <stdlib.h>
 #include "fillit.h"
 
+#define SHARP new->pos
+
 int    		main(void)
 {
 	int    		fd;
@@ -31,6 +33,7 @@ int    		main(void)
 	tt_list		*new;
 	int			j;
 	int			k;
+	char	**map;
 
 	j = 0;
 	k = 0;
@@ -55,11 +58,10 @@ int    		main(void)
 		printf("close failed\n");
 	new = in_ttmn(nb_t, tab);
 	new = ft_add_letters(new);
-	while (new)
-	{
-		ft_display_tab(new->ttmn);
-		new = new->next;
-	}
+	map = ft_map(4);
+	new = new->next->next;
+	put_tetriminos(map, new);
+	ft_display_tab(map);
 	free(tab);
 	return (0);
 }
