@@ -6,7 +6,7 @@
 #*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/10/06 23:08:58 by beerus            #+#    #+#             *#
-#*   Updated: 2016/11/10 05:25:45 by beerus           ###   ########.fr       *#
+#*   Updated: 2016/12/08 04:38:19 by beerus           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -14,12 +14,12 @@ NAME = fillit
 
 NAME_H = fillit.a
 
-SRC_NAME = ft_check_file.c 		 	\
-		   ft_convert.c	   		 	\
-		   ft_tab_tt.c			 	\
-		   ft_add_letters_pos.c     \
-		   ft_map.c				    \
-		   ft_resolve_fillit.c 		\
+SRC_NAME = ft_check_file.c 		 			\
+		   ft_convert.c	   		 			\
+		   ft_tab_tt.c			 			\
+		   ft_add_letters_pos.c     		\
+		   ft_map.c				    		\
+		   ft_put_remove_tetriminos.c 		\
 		   ft_main.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

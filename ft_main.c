@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/07 18:37:49 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/08 04:40:09 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int    		main(void)
 	int			j;
 	int			k;
 	char	**map;
+	char	**test;
 
+	test = NULL;
 	j = 0;
 	k = 0;
 	ret = 0;
@@ -59,8 +61,11 @@ int    		main(void)
 	new = in_ttmn(nb_t, tab);
 	new = ft_add_letters(new);
 	map = ft_map(4);
-	new = new->next->next;
-	put_tetriminos(map, new);
+	new = new->next;
+	map = put_tetriminos(map, new, 0, 0);
+	ft_display_tab(map);
+	ft_putchar('\n');
+	remove_tetriminos(map, new);
 	ft_display_tab(map);
 	free(tab);
 	return (0);
