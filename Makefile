@@ -20,6 +20,7 @@ SRC_NAME = ft_check_file.c 		 			\
 		   ft_add_letters_pos.c     		\
 		   ft_map.c				    		\
 		   ft_put_remove_tetriminos.c 		\
+		   resolve_fillit.c					\
 		   ft_main.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
