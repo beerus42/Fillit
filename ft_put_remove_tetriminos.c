@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:52:21 by liton             #+#    #+#             */
-/*   Updated: 2016/12/08 19:28:59 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/12 18:43:19 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ char	**put_tetriminos(char **map, tt_list *list, int i, int j)
 		map[i][j] = list->letter;
 	if (count != 5)
 		return (remove_tetriminos(map, list));
+	printf("#############\n");
 	return (map);
 }
