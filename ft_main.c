@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/12 16:16:34 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/13 18:32:23 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int    		main(void)
 		printf("close failed\n");
 	new = in_ttmn(nb_t, tab);
 	new = ft_add_letters(new);
-	map = ft_map(4);
+	map = ft_map(5);
 	map = resolve_fillit(map, nb_t, new);
 	ft_display_tab(map);
 	free(tab);

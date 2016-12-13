@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/08 03:00:45 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/13 15:38:57 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,11 @@ tt_list		*ft_add_letters(tt_list *list)
 	}
 	list = begin;
 	list = ft_add_pos(list);
+	while (list)
+	{
+		list->in_map = 0;
+		list = list->next;
+	}
+	list = begin;
 	return (list);
 }
