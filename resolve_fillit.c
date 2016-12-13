@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/13 19:40:02 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/13 20:03:46 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ char	**resolve_fillit(char **map, int nb_t, tt_list *list)
 	int			count;
 	tt_list		*begin;
 	tt_list		*tmp;
-	tt_list		*debug;
 
 	begin = list;
 	count = 0;
 	size_map = 5;
-	debug = list->next->next->next->next;
 	while (count != nb_t)
 	{
 		if (!ttmn_in_map(map, list))

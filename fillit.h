@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/13 15:37:39 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/13 19:44:53 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct 	b_list
 	char			**ttmn;
 	char			letter;
 	int				in_map;
+	int				x;
+	int				y;
 	struct 	b_list 	*next;
 	struct b_list	*prev;
 }				tt_list;
