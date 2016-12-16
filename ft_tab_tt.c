@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/12/08 18:21:14 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/16 01:48:45 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include "../libft/libft.h"
 #include <stdlib.h>
 
-tt_list		*in_ttmn(int nb_t, char **buff)
+t_ttmn		*in_ttmn(int nb_t, char **buff)
 {
 	int		i;
-	tt_list	*new;
-	tt_list	*begin;
+	t_ttmn	*new;
+	t_ttmn	*begin;
 
 	i = 0;
 	new = list_ttmn(nb_t);
 	begin = new;
 	while (buff[i])
 	{
-		new->ttmn = reconvert(buff[i]);
+		new->tab = reconvert(buff[i]);
 		++i;
 		new = new->next;
 	}
@@ -33,13 +33,13 @@ tt_list		*in_ttmn(int nb_t, char **buff)
 	return (new);
 }
 
-tt_list		*add_right(tt_list *list)
+t_ttmn		*add_right(t_ttmn *list)
 {
-	tt_list *new;
-	tt_list *begin;
+	t_ttmn 		*new;
+	t_ttmn		*begin;
 
 	begin = list;
-	if (!(new = (tt_list*)malloc(sizeof(tt_list))))
+	if (!(new = (t_ttmn*)malloc(sizeof(t_ttmn))))
 		return (NULL);
 	while (list->next)
 		list = list->next;
@@ -50,14 +50,14 @@ tt_list		*add_right(tt_list *list)
 	return (list);
 }
 
-tt_list		*list_ttmn(int nb_t)
+t_ttmn		*list_ttmn(int nb_t)
 {
-	tt_list		*new;
-	tt_list		*begin;
+	t_ttmn		*new;
+	t_ttmn		*begin;
 	int			i;
 
 	i = 1;
-	if (!(new = (tt_list*)malloc(sizeof(tt_list))))
+	if (!(new = (t_ttmn*)malloc(sizeof(t_ttmn))))
 		return (NULL);
 	new->next = NULL;
 	new->prev = NULL;

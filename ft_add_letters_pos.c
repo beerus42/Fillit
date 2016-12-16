@@ -6,16 +6,16 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/13 15:38:57 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/16 01:56:39 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "../Libft/libft.h"
 
-void		ft_add_pos_2(int i, int j, int *k, tt_list *list)
+void		ft_add_pos_2(int i, int j, int *k, t_ttmn *list)
 {
-	if (list->ttmn[i][j] == '#')
+	if (list->tab[i][j] == '#')
 	{
 		list->pos[*k][0] = i;
 		list->pos[*k][1] = j;
@@ -23,22 +23,21 @@ void		ft_add_pos_2(int i, int j, int *k, tt_list *list)
 	}
 }
 
-tt_list		*ft_add_pos(tt_list *list)
+t_ttmn		*ft_add_pos(t_ttmn *list, t_ttmn *begin)
 {
-	tt_list		*begin;
 	int			i;
 	int			j;
 	int			k;
 
-	begin = list;
+	list = begin;
 	i = -1;
 	k = 0;
 	while (list)
 	{
-		while (list->ttmn[++i])
+		while (list->tab[++i])
 		{
 			j = -1;
-			while (list->ttmn[i][++j])
+			while (list->tab[i][++j])
 				ft_add_pos_2(i, j, &k, list);
 		}
 		list = list->next;
@@ -49,12 +48,31 @@ tt_list		*ft_add_pos(tt_list *list)
 	return (list);
 }
 
-tt_list		*ft_add_letters(tt_list *list)
+t_ttmn		*ft_add_nb(t_ttmn *list, t_ttmn *begin)
 {
-	char	alpha;
-	tt_list	*begin;
+	int		n;
+
+	n = 1;
+	list = begin;
+
+	while (list)
+	{
+		list->nb = n;
+		n++;
+		list = list->next;
+	}
+	list = begin;
+	return (list);
+}
+
+t_ttmn		*ft_add_letters(t_ttmn *list)
+{
+	char		alpha;
+	int			n;
+	t_ttmn		*begin;
 
 	alpha = 'A';
+	n = 1;
 	begin = list;
 	while (list)
 	{
@@ -62,13 +80,7 @@ tt_list		*ft_add_letters(tt_list *list)
 		alpha++;
 		list = list->next;
 	}
-	list = begin;
-	list = ft_add_pos(list);
-	while (list)
-	{
-		list->in_map = 0;
-		list = list->next;
-	}
-	list = begin;
+	list = ft_add_pos(list, begin);
+	list = ft_add_nb(list, begin);
 	return (list);
 }

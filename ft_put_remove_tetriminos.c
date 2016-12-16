@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:52:21 by liton             #+#    #+#             */
-/*   Updated: 2016/12/13 19:43:49 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/15 22:44:02 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "fillit.h"
 #include "stdlib.h"
 
-int		ttmn_in_map(char **map, tt_list *list)
+int		ttmn_in_map(char **map, t_ttmn *list)
 {
 	int		i;
 	int		j;
@@ -34,7 +34,7 @@ int		ttmn_in_map(char **map, tt_list *list)
 	return (0);
 }
 
-char	**remove_tetriminos(char **map, tt_list *list)
+char	**remove_tetriminos(char **map, t_ttmn *list)
 {
 	int		i;
 	int		j;
@@ -68,7 +68,7 @@ void	change_x(int x, int x_, int *i)
 		++(*i);
 }
 
-char	**put_tetriminos(char **map, tt_list *list, int i, int j)
+char	**put_tetriminos(char **map, t_ttmn *list, int i, int j)
 {
 	int			count;
 

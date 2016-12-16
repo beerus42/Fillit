@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/13 19:44:53 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/16 04:19:03 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,24 @@
 typedef struct 	b_list
 {
 	int				pos[4][2];
-	char			**ttmn;
+	char			**tab;
 	char			letter;
-	int				in_map;
-	int				x;
-	int				y;
+	int				nb;
+	int			in_map;
 	struct 	b_list 	*next;
 	struct b_list	*prev;
-}				tt_list;
+}				t_ttmn;
 
 int			check_file(char *file, int *nb_tetriminos);
 char		**convert(char *file, int nb_tetriminos);
 char		**reconvert(char *tab);	
 int			check_tetriminos(char **tab);
-tt_list		*in_ttmn(int nb_t, char **buff);
-tt_list		*list_ttmn(int nb_t);
-tt_list		*ft_add_letters(tt_list *list);
+t_ttmn		*in_ttmn(int nb_t, char **buff);
+t_ttmn		*list_ttmn(int nb_t);
+t_ttmn		*ft_add_letters(t_ttmn *list);
 char		**ft_map(int size);
-char		**put_tetriminos(char **map, tt_list *list, int i, int j);
-char		**remove_tetriminos(char **map, tt_list *list);
-char		**resolve_fillit(char **map, int nb_t, tt_list *list);
-int			ttmn_in_map(char **map, tt_list *list);
+char		**put_tetriminos(char **map, t_ttmn *list, int i, int j);
+char		**remove_tetriminos(char **map, t_ttmn *list);
+char		**resolve_fillit(char **map, int nb_t, t_ttmn *list);
+int			ttmn_in_map(char **map, t_ttmn *list);
 #endif

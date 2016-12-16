@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/13 18:32:23 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/16 02:41:10 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int    		main(void)
 	int    		nb_t;
 	char		**tab;
 	int			i;
-	tt_list		*new;
+	t_ttmn		*new;
 	int			j;
 	int			k;
 	char	**map;
