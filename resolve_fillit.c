@@ -6,13 +6,15 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/16 20:39:32 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/17 01:43:13 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include  "fillit.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
+
+#define RR ft_display_tab(map) 
 
 int		search_place(char **map, t_ttmn *list)
 {
@@ -31,7 +33,11 @@ int		search_place(char **map, t_ttmn *list)
 				{
 					map = put_tetriminos(map, list, i, j);
 					if (ttmn_in_map(map, list))
+					{	
+						RR;
+						ft_putchar('\n');
 						return (1);
+					}
 				}
 //				ft_display_tab(map);
 //				ft_putchar('\n');
@@ -57,11 +63,13 @@ char	**reset_change_order(char **map, int **nb_t, t_ttmn **save, t_ttmn ***list)
 {
 	while ((**list)->next && ttmn_in_map(map, **list))
 	{
+	
 		map = remove_tetriminos(map, **list);
 		++(**nb_t);
 		**list = (**list)->next;
 	}
-	*save = (*save)->next;
+	if ((*save)->next)
+		*save = (*save)->next;
 	**list = *save;
 	return (map);
 }
@@ -88,7 +96,7 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn **list, t_ttmn *begin)
 		t_ttmn		*tmp;
 
 		tmp = (*list)->prev;
-		save = *list;
+		save = *list;	
 		while (nb_t)
 		{
 			if (search_place(map, *list) && --(*nb_t))
@@ -99,11 +107,13 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn **list, t_ttmn *begin)
 			}
 			else
 			{
-				if (!(save->next) && nb_t)
-				{
+					
+				if ((!(save->next)) && nb_t)
+				{	
 					map = reset(map, &nb_t, tmp, &list);
 					return (0);
 				}
+				
 				*list = tmp;
 				map = reset_change_order(map, &nb_t, &save, &list);
 			}
