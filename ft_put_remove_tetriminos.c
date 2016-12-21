@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:52:21 by liton             #+#    #+#             */
-/*   Updated: 2016/12/15 22:44:02 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/20 16:26:45 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,21 +71,23 @@ void	change_x(int x, int x_, int *i)
 char	**put_tetriminos(char **map, t_ttmn *list, int i, int j)
 {
 	int			count;
+	int			size_map;
 
 	count = 1;
-	if (map[i] && map[i][j] && map[i][j] == '.' && count++)
+	size_map = ft_strlen(map[0]);
+	if (i < size_map && j < size_map && map[i][j] == '.' && count++)
 		map[i][j] = list->letter;
 	change_x(list->pos[1][0], list->pos[0][0], &i);
 	change_y(list->pos[1][1], list->pos[0][1], &j);
-	if (map[i] && map[i][j] && map[i][j] == '.' && count++)
+	if (i < size_map && j < size_map && map[i][j] == '.' && count++)
 		map[i][j] = list->letter;
 	change_x(list->pos[2][0], list->pos[1][0], &i);
 	change_y(list->pos[2][1], list->pos[1][1], &j);
-	if (map[i] && map[i][j] && map[i][j] == '.' && count++)
+	if (i < size_map && j < size_map && map[i][j] == '.' && count++)
 		map[i][j] = list->letter;
 	change_x(list->pos[3][0], list->pos[2][0], &i);
 	change_y(list->pos[3][1], list->pos[2][1], &j);
-	if (map[i] && map[i][j] && map[i][j] == '.' && count++)
+	if (i < size_map && j < size_map && map[i][j] == '.' && count++)
 		map[i][j] = list->letter;
 	if (count != 5)
 		return (remove_tetriminos(map, list));

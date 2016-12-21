@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/16 01:56:39 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/20 15:26:03 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,6 @@ t_ttmn		*ft_add_pos(t_ttmn *list, t_ttmn *begin)
 	return (list);
 }
 
-t_ttmn		*ft_add_nb(t_ttmn *list, t_ttmn *begin)
-{
-	int		n;
-
-	n = 1;
-	list = begin;
-
-	while (list)
-	{
-		list->nb = n;
-		n++;
-		list = list->next;
-	}
-	list = begin;
-	return (list);
-}
-
 t_ttmn		*ft_add_letters(t_ttmn *list)
 {
 	char		alpha;
@@ -81,6 +64,5 @@ t_ttmn		*ft_add_letters(t_ttmn *list)
 		list = list->next;
 	}
 	list = ft_add_pos(list, begin);
-	list = ft_add_nb(list, begin);
 	return (list);
 }

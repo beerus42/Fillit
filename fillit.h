@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/16 04:19:03 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/20 15:54:58 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 
 #include <stdio.h>
 
+#define RR ft_display_tab(map)
+
 typedef struct 	b_list
 {
 	int				pos[4][2];
+	int				diez[4][2];
 	char			**tab;
 	char			letter;
-	int				nb;
-	int			in_map;
+	int				x;
+	int				y;
+	int				in_map;
 	struct 	b_list 	*next;
 	struct b_list	*prev;
 }				t_ttmn;
@@ -36,6 +40,6 @@ t_ttmn		*ft_add_letters(t_ttmn *list);
 char		**ft_map(int size);
 char		**put_tetriminos(char **map, t_ttmn *list, int i, int j);
 char		**remove_tetriminos(char **map, t_ttmn *list);
-char		**resolve_fillit(char **map, int nb_t, t_ttmn *list);
+char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map);
 int			ttmn_in_map(char **map, t_ttmn *list);
 #endif
