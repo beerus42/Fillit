@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/20 15:54:58 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/21 16:21:10 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ char		**put_tetriminos(char **map, t_ttmn *list, int i, int j);
 char		**remove_tetriminos(char **map, t_ttmn *list);
 char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map);
 int			ttmn_in_map(char **map, t_ttmn *list);
+void		remove_to_null(char **map, t_ttmn *list);
 #endif

@@ -6,19 +6,18 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/20 20:01:34 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/21 21:46:30 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "fillit.h"
+#include "fillit.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
 
-int		search_place(char **map, t_ttmn *list)
+int			search_place(char **map, t_ttmn *list)
 {
 	int		i;
 	int		j;
-
 
 	i = -1;
 	if (!ttmn_in_map(map, list))
@@ -44,7 +43,7 @@ int		search_place(char **map, t_ttmn *list)
 	return (0);
 }
 
-int		move_right(char **map, t_ttmn *list, int size_map, int *nb_t)
+int			move_right(char **map, t_ttmn *list, int size_map, int *nb_t)
 {
 	int		i;
 	int		j;
@@ -73,21 +72,11 @@ int		move_right(char **map, t_ttmn *list, int size_map, int *nb_t)
 	return (0);
 }
 
-int		resolve_fillit_2(char **map, t_ttmn *list, int *nb_t)
-{
-	while (list->next && *nb_t)
-	{
-		if (search_place(map, list))
-			if (list->next)
-				list = list->next;
-	}
-}
-
-int		put_max(char **map, t_ttmn **list, int *nb_t)
+int			put_max(char **map, t_ttmn **list, int *nb_t)
 {
 	while ((*list)->next && !ttmn_in_map(map, *list) && *nb_t)
 	{
-		if (!search_place(map, *list) && nb_t)
+		if (*nb_t && !search_place(map, *list))
 			return (0);
 		*list = (*list)->next;
 		--(*nb_t);
@@ -98,27 +87,73 @@ int		put_max(char **map, t_ttmn **list, int *nb_t)
 	return (1);
 }
 
+int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
+{
+	t_ttmn 		*tmp;
+	int		bol;
+
+	bol = 0;
+	if (!search_place(map, list))
+		return (0);
+	--(*nb_t);
+	tmp = list;
+	if (list->next)
+		list = list->next;
+	while (*nb_t)
+	{
+		if (bol == 1)
+		{
+			if ((!move_right(map, list->prev, size_map, nb_t)))
+			{
+				if (list->prev != tmp)
+					list = list->prev;
+				else
+					return (0);
+			}
+			bol = 0;
+		}
+		if (*nb_t && search_place(map, list) && (*nb_t)--)
+		{
+			if (list->next)
+				list = list->next;
+			else
+				return (1);
+		}
+		else if (list->prev != tmp && (!move_right(map, list->prev, size_map, nb_t)))
+		{
+			bol = 1;
+			list = list->prev;
+		}
+		else if (!move_right(map, list->prev, size_map, nb_t))
+			return (0);
+	}
+	return (1);
+}
+
+
 char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 {
-	t_ttmn	*tmp;
+	t_ttmn	*begin;
 
-	size_map = 5;
+	begin = list;
 	put_max(map, &list, &nb_t);
-	tmp = list->prev;
 	while (nb_t)
 	{
 		while (nb_t && move_right(map, list->prev, size_map, &nb_t))
 		{
-			RR;
-			ft_putchar('\n');
-			resolve_fillit_2(&map, &list, &nb_t);
+			if (resolve_fillit_2(map, &nb_t, list, size_map, &debug))
+				return (map);
+		}
+		if (list->prev->letter == 'A')
+		{
+			free(map);
+			size_map++;
+			map = ft_map(size_map);
+			list = begin;
+			put_max(map, &list, &nb_t);
 		}
 		if (!ttmn_in_map(map, list) && nb_t)
-		{
-			if (list->letter != 'A')
-				list = list->prev;
-			remove_tetriminos(map, list);
-		}
+			list = list->prev;
 	}
 	return (map);
 }
