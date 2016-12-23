@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/02 16:52:21 by liton             #+#    #+#             */
-/*   Updated: 2016/12/21 21:44:26 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/23 02:06:45 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int		ttmn_in_map(char **map, t_ttmn *list)
 {
 	int		i;
 	int		j;
+	int		size_map;
 
+	size_map = ft_strlen(map[0]);
 	i = 0;
-	while (map[i])
+	while (i < size_map)
 	{
 		j = 0;
-		while (map[i][j])
+		while (j < size_map)
 		{
 			if (map[i][j] == list->letter)
 				return (1);
@@ -38,12 +40,14 @@ char	**remove_tetriminos(char **map, t_ttmn *list)
 {
 	int		i;
 	int		j;
+	int		size_map;
 
+	size_map = ft_strlen(map[0]);
 	i = -1;
-	while (map[++i])
+	while (++i < size_map)
 	{
 		j = -1;
-		while (map[i][++j])
+		while (++j < size_map)
 		{
 			if (map[i][j] == list->letter)
 				map[i][j] = '.';

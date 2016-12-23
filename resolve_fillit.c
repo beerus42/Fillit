@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/21 21:46:30 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/23 03:15:03 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 		list = list->next;
 	while (*nb_t)
 	{
+		/*
 		if (bol == 1)
 		{
 			if ((!move_right(map, list->prev, size_map, nb_t)))
@@ -112,6 +113,7 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 			}
 			bol = 0;
 		}
+		*/
 		if (*nb_t && search_place(map, list) && (*nb_t)--)
 		{
 			if (list->next)
@@ -119,13 +121,13 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 			else
 				return (1);
 		}
-		else if (list->prev != tmp && (!move_right(map, list->prev, size_map, nb_t)))
+		else if (!move_right(map, list->prev, size_map, nb_t))
 		{
+			if (list->prev == tmp)
+				return (0);
 			bol = 1;
 			list = list->prev;
 		}
-		else if (!move_right(map, list->prev, size_map, nb_t))
-			return (0);
 	}
 	return (1);
 }
@@ -141,10 +143,10 @@ char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 	{
 		while (nb_t && move_right(map, list->prev, size_map, &nb_t))
 		{
-			if (resolve_fillit_2(map, &nb_t, list, size_map, &debug))
+			if (resolve_fillit_2(map, &nb_t, list, size_map))
 				return (map);
 		}
-		if (list->prev->letter == 'A')
+		if (nb_t && list->prev->letter == 'A')
 		{
 			free(map);
 			size_map++;
@@ -152,7 +154,7 @@ char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 			list = begin;
 			put_max(map, &list, &nb_t);
 		}
-		if (!ttmn_in_map(map, list) && nb_t)
+		else if (!ttmn_in_map(map, list) && nb_t)
 			list = list->prev;
 	}
 	return (map);

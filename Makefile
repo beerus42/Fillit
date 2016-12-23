@@ -6,7 +6,7 @@
 #*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2016/10/06 23:08:58 by beerus            #+#    #+#             *#
-#*   Updated: 2016/12/08 04:38:19 by beerus           ###   ########.fr       *#
+#*   Updated: 2016/12/23 03:12:29 by beerus           ###   ########.fr       *#
 #*                                                                            *#
 #* ************************************************************************** *#
 
@@ -21,7 +21,6 @@ SRC_NAME = ft_check_file.c 		 			\
 		   ft_map.c				    		\
 		   ft_put_remove_tetriminos.c 		\
 		   resolve_fillit.c					\
-		   remove_to_null.c				\
 		   ft_main.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
