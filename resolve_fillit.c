@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 21:18:16 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 21:50:09 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int			resolve_fillit_3(char **map, int *nb_t, t_ttmn *list)
 	{
 		bol = resolve_fillit_4(&map, &nb_t, &list, tmp);
 		if (bol == 0)
-			return (bol);
+			return (0);
 		if (bol == 1)
-			return (bol);
+			return (1);
 	}
 	return (1);
 }
