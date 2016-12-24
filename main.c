@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 21:42:55 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 21:53:06 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int    		main(void)
 		map = resolve_fillit(map, nb_t, new, 2);
 		ft_display_tab(map);
 		free(tab);
+		free(map);
 	}
 	return (0);
 }
