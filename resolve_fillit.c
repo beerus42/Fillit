@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/23 03:15:03 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 18:02:11 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ int			put_max(char **map, t_ttmn **list, int *nb_t)
 int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 {
 	t_ttmn 		*tmp;
-	int		bol;
 
-	bol = 0;
 	if (!search_place(map, list))
 		return (0);
 	--(*nb_t);
@@ -101,19 +99,6 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 		list = list->next;
 	while (*nb_t)
 	{
-		/*
-		if (bol == 1)
-		{
-			if ((!move_right(map, list->prev, size_map, nb_t)))
-			{
-				if (list->prev != tmp)
-					list = list->prev;
-				else
-					return (0);
-			}
-			bol = 0;
-		}
-		*/
 		if (*nb_t && search_place(map, list) && (*nb_t)--)
 		{
 			if (list->next)
@@ -125,13 +110,15 @@ int			resolve_fillit_2(char **map, int *nb_t, t_ttmn *list, int size_map)
 		{
 			if (list->prev == tmp)
 				return (0);
-			bol = 1;
 			list = list->prev;
+			while (list->prev != tmp && !move_right(map, list->prev, size_map, nb_t))
+				list = list->prev;
+			if (list->prev == tmp && !move_right(map, list->prev, size_map, nb_t))
+				return (0);
 		}
 	}
 	return (1);
 }
-
 
 char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 {
@@ -139,6 +126,13 @@ char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 
 	begin = list;
 	put_max(map, &list, &nb_t);
+	while (nb_t && list == begin)
+	{
+		size_map++;
+		free(map);
+		map = ft_map(size_map);
+		put_max(map, &list, &nb_t);
+	}
 	while (nb_t)
 	{
 		while (nb_t && move_right(map, list->prev, size_map, &nb_t))
