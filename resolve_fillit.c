@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 22:03:47 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 22:09:44 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int		resolve_fillit_4(char ***map, int **nb_t, t_ttmn **list, t_ttmn *tmp)
 		if ((*list)->prev == tmp)
 			return (0);
 		*list = (*list)->prev;
-		while ((*list)->prev != tmp 
-				&& !move_right(*map, (*list)->prev, size_map, *nb_t))
+		while ((*list)->prev != tmp	&& 
+		!move_right(*map, (*list)->prev, size_map, *nb_t))
 			*list = (*list)->prev;
-		if ((*list)->prev == tmp 
-				&& !move_right(*map, (*list)->prev, size_map, *nb_t))
+		if ((*list)->prev == tmp && 
+		!move_right(*map, (*list)->prev, size_map, *nb_t))
 			return (0);
 	}
 	return (42);

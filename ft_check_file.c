@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/08 20:58:43 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 20:59:49 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 22:47:06 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			check_file(char *file, int *nb_tetriminos)
 		if (check_file_2(file, &i, &count_wd_pt, &count_bn) == 0)
 			return (0);
 	}
-	if (file[i - 1] != '\n' || file[i - 2] != '\n')
+	if (file[i - 1] != '\n' || file[i - 2] == '\n')
 		return (0);
 	return (1);
 }

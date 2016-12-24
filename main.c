@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 21:53:06 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 22:55:02 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int    		main(void)
 {
+	t_ttmn 		*new;
 	int    		nb_t;
-	t_ttmn		*new;
-	char	**tab;
-	char	**map;
+	char		**tab;
+	char		**map;
 
-	nb_t = 0;
+	nb_t = 1;
 	new = NULL;
 	tab = NULL;
-	if (!read_and_check_file(&tab, &nb_t))
+	if (!read_and_check_file(&tab, &nb_t) || nb_t <= 0 || nb_t > 26)
 		printf("error\n");
 	else
 	{
