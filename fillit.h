@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/21 16:21:10 by liton            ###   ########.fr       */
+/*   Updated: 2016/12/24 21:38:41 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ char		**put_tetriminos(char **map, t_ttmn *list, int i, int j);
 char		**remove_tetriminos(char **map, t_ttmn *list);
 char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map);
 int			ttmn_in_map(char **map, t_ttmn *list);
-void		remove_to_null(char **map, t_ttmn *list);
+int			move_right(char **map, t_ttmn *list, int size_map, int *nb_t);
+int			search_place(char **map, t_ttmn *list);	
+int			put_max(char **map, t_ttmn **list, int *nb_t);
+int			read_and_check_file(char ***tab, int *nb);
 #endif

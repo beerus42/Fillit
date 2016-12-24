@@ -6,63 +6,41 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 21:12:13 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/24 21:01:26 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "fillit.h"
-#include "../Libft/libft.h"
 
-void		ft_add_pos_2(int i, int j, int *k, t_ttmn *list)
+void		check_tetriminos_2(char *tab, int j, int *count_ttmn)
 {
-	if (list->tab[i][j] == '#')
-	{
-		list->pos[*k][0] = i;
-		list->pos[*k][1] = j;
-		(*k)++;
-	}
+	if (tab[j + 1] && tab[j + 1] == 35)
+		(*count_ttmn)++;
+	if (tab[j + 5] && tab[j + 5] == 35)
+		(*count_ttmn)++;
 }
 
-t_ttmn		*ft_add_pos(t_ttmn *list, t_ttmn *begin)
+int			check_tetriminos(char **tab)
 {
-	int			i;
-	int			j;
-	int			k;
+	int		i;
+	int		j;
+	int		count_wd;
+	int		count_ttmn;
 
-	list = begin;
 	i = -1;
-	k = 0;
-	while (list)
+	while (tab[++i])
 	{
-		while (list->tab[++i])
+		j = -1;
+		count_wd = 1;
+		count_ttmn = 0;
+		while (tab[i][++j])
 		{
-			j = -1;
-			while (list->tab[i][++j])
-				ft_add_pos_2(i, j, &k, list);
+			if (tab[i][j] == '#' && count_wd++)
+				check_tetriminos_2(tab[i], j, &count_ttmn);
 		}
-		list = list->next;
-		i = -1;
-		k = 0;
+		if (count_wd != 5 || (count_ttmn != 3 && count_ttmn != 4))
+			return (0);
 	}
-	list = begin;
-	return (list);
-}
-
-t_ttmn		*ft_add_letters(t_ttmn *list)
-{
-	char		alpha;
-	int			n;
-	t_ttmn		*begin;
-
-	alpha = 'A';
-	n = 1;
-	begin = list;
-	while (list)
-	{
-		list->letter = alpha;
-		alpha++;
-		list = list->next;
-	}
-	list = ft_add_pos(list, begin);
-	return (list);
+	return (1);
 }
