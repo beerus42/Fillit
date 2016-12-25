@@ -6,7 +6,7 @@
 /*   By: beerus <livbrandon@outlook.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/24 21:23:36 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 04:30:41 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:15:24 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int	 	read_and_check_file(char ***tab, int *nb_t, char *argv)
+int	 	read_and_check_file(char ***tab, int *nb_t, char *argv, int ac)
 {
 	char	*buff;
 	int		ret;
 	int		fd;
 
+	if (ac != 2)
+		return (0);
 	if (!(buff = (char*)malloc(sizeof(char) * 1000)))
 			return (0);
 	fd = open(argv, O_RDONLY);

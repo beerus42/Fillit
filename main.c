@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 04:37:43 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:15:45 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ int    		main(int ac, char **av)
 	nb_t = 1;
 	new = NULL;
 	tab = NULL;
-	if (ac != 2)
-	{
-		printf("error\n");
-		return (0);
-	}
-	if (!read_and_check_file(&tab, &nb_t, av[1]) || nb_t <= 0 || nb_t > 26)
+	if (!read_and_check_file(&tab, &nb_t, av[1], ac) || nb_t <= 0 || nb_t > 26)
 		printf("error\n");
 	else
 	{
