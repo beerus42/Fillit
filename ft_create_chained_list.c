@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/12/25 05:23:01 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 21:05:11 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/libft.h"
 #include <stdlib.h>
 
-t_ttmn		*in_ttmn(int nb_t, char **buff)
+t_ttmn		*in_tab(int nb_t, char **buff)
 {
 	int		i;
 	t_ttmn	*new;

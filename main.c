@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 05:31:41 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 21:05:46 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int    		main(int ac, char **av)
 		ft_putendl("error");
 	else
 	{
-		new = in_ttmn(nb_t, tab);
+		new = in_tab(nb_t, tab);
 		new = ft_add_letters(new);
 		map = ft_map(2);
 		map = resolve_fillit(map, nb_t, new, 2);

@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 05:31:22 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 21:05:23 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int			check_file(char *file, int *nb_tetriminos);
 char		**reconvert(char *tab);
 char		**convert(char *file, int nb_tetriminos);
 int			check_tetriminos(char **tab);
-t_ttmn		*in_ttmn(int nb_t, char **buff);
+t_ttmn		*in_tab(int nb_t, char **buff);
 t_ttmn		*list_ttmn(int nb_t);
 t_ttmn		*ft_add_letters(t_ttmn *list);
 char		**ft_map(int size);
