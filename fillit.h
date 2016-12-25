@@ -6,16 +6,12 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 05:14:59 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:31:22 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-
-#include <stdio.h>
-
-#define RR ft_display_tab(map)
 
 typedef struct 	b_list
 {
@@ -31,8 +27,8 @@ typedef struct 	b_list
 }				t_ttmn;
 
 int			check_file(char *file, int *nb_tetriminos);
+char		**reconvert(char *tab);
 char		**convert(char *file, int nb_tetriminos);
-char		**reconvert(char *tab);	
 int			check_tetriminos(char **tab);
 t_ttmn		*in_ttmn(int nb_t, char **buff);
 t_ttmn		*list_ttmn(int nb_t);
