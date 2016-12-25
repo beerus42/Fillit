@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 21:12:13 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:22:49 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_add_pos_2(int i, int j, int *k, t_ttmn *list)
 	{
 		list->pos[*k][0] = i;
 		list->pos[*k][1] = j;
-		(*k)++;
+		++(*k);
 	}
 }
 
@@ -60,7 +60,7 @@ t_ttmn		*ft_add_letters(t_ttmn *list)
 	while (list)
 	{
 		list->letter = alpha;
-		alpha++;
+		++alpha;
 		list = list->next;
 	}
 	list = ft_add_pos(list, begin);

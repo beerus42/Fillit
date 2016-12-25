@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 15:13:20 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 21:01:26 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:21:23 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 void		check_tetriminos_2(char *tab, int j, int *count_ttmn)
 {
 	if (tab[j + 1] && tab[j + 1] == 35)
-		(*count_ttmn)++;
+		++(*count_ttmn);
 	if (tab[j + 5] && tab[j + 5] == 35)
-		(*count_ttmn)++;
+		++(*count_ttmn);
 }
 
 int			check_tetriminos(char **tab)
