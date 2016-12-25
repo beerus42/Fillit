@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/08 20:58:43 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 22:47:06 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 05:08:15 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int			check_file_2(char *file, int *i, int *count_wd_pt, int *count_bn)
 {
 	if (file[*i] == '#' || file[*i] == '.')
 		(*count_wd_pt)++;
+	else if (file[*i] != '\n' && file[*i] != '\0')
+		return (0);
 	if (file[*i] == '\n')
 	{
 		if (*count_wd_pt != 4)
@@ -24,12 +26,14 @@ int			check_file_2(char *file, int *i, int *count_wd_pt, int *count_bn)
 		*count_wd_pt = 0;
 		(*count_bn)++;
 	}
-	if (file[*i] == '\n' && file[(*i) + 1] == '\n')
+	if ((file[*i] == '\n' && file[(*i) + 1] == '\n')
+		|| (file[*i] == '\n' && file[(*i) + 1] == '\0'))
 	{
 		if (*count_bn != 4)
 			return (0);
 		*count_bn = 0;
-		(*i)++;
+		if (file[(*i) + 1])
+			(*i)++;
 	}
 	return (1);
 }

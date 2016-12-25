@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 22:55:02 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 04:37:43 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "fillit.h"
 
-int    		main(void)
+int    		main(int ac, char **av)
 {
 	t_ttmn 		*new;
 	int    		nb_t;
@@ -24,7 +24,12 @@ int    		main(void)
 	nb_t = 1;
 	new = NULL;
 	tab = NULL;
-	if (!read_and_check_file(&tab, &nb_t) || nb_t <= 0 || nb_t > 26)
+	if (ac != 2)
+	{
+		printf("error\n");
+		return (0);
+	}
+	if (!read_and_check_file(&tab, &nb_t, av[1]) || nb_t <= 0 || nb_t > 26)
 		printf("error\n");
 	else
 	{

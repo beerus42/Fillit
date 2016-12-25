@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/24 22:09:44 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 04:36:52 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		resolve_fillit_2(char ***map, int *nb_t, t_ttmn **list, int *size_map)
 	return (0);
 }
 
-char		**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
+char	**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
 {
 	t_ttmn	*begin;
 

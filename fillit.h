@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 03:03:29 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/24 21:38:41 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/25 04:30:51 by beerus           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int			ttmn_in_map(char **map, t_ttmn *list);
 int			move_right(char **map, t_ttmn *list, int size_map, int *nb_t);
 int			search_place(char **map, t_ttmn *list);	
 int			put_max(char **map, t_ttmn **list, int *nb_t);
-int			read_and_check_file(char ***tab, int *nb);
+int			read_and_check_file(char ***tab, int *nb, char *argv);
 #endif
