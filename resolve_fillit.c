@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/08 16:18:42 by liton             #+#    #+#             */
-/*   Updated: 2016/12/25 17:57:50 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/26 19:43:58 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ int		resolve_fillit_4(char ***map, int **nb_t, t_ttmn **list, t_ttmn *tmp)
 		if ((*list)->prev == tmp)
 			return (0);
 		*list = (*list)->prev;
-		while ((*list)->prev != tmp	&& 
-		!move_right(*map, (*list)->prev, size_map, *nb_t))
+		while ((*list)->prev != tmp
+		&& !move_right(*map, (*list)->prev, size_map, *nb_t))
 			*list = (*list)->prev;
-		if ((*list)->prev == tmp && 
-		!move_right(*map, (*list)->prev, size_map, *nb_t))
+		if ((*list)->prev == tmp
+		&& !move_right(*map, (*list)->prev, size_map, *nb_t))
 			return (0);
 	}
 	return (42);
 }
 
-int			resolve_fillit_3(char **map, int *nb_t, t_ttmn *list)
+int		resolve_fillit_3(char **map, int *nb_t, t_ttmn *list)
 {
-	t_ttmn 		*tmp;
+	t_ttmn		*tmp;
 	int			bol;
 
 	if (!search_place(map, list))
@@ -60,7 +60,6 @@ int			resolve_fillit_3(char **map, int *nb_t, t_ttmn *list)
 	}
 	return (1);
 }
-
 
 int		resolve_fillit_2(char ***map, int *nb_t, t_ttmn **list, int *size_map)
 {
@@ -82,7 +81,7 @@ int		resolve_fillit_2(char ***map, int *nb_t, t_ttmn **list, int *size_map)
 	return (0);
 }
 
-char	**resolve_fillit(char **map, int nb_t, t_ttmn *list, int size_map)
+char	**resolve(char **map, int nb_t, t_ttmn *list, int size_map)
 {
 	t_ttmn	*begin;
 

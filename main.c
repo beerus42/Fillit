@@ -6,7 +6,7 @@
 /*   By: beerus <bckeur@free.exe>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/10 02:54:19 by beerus            #+#    #+#             */
-/*   Updated: 2016/12/25 21:05:46 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/26 18:43:48 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include "fillit.h"
 
-int    		main(int ac, char **av)
+int		main(int ac, char **av)
 {
-	t_ttmn 		*new;
-	int    		nb_t;
+	t_ttmn		*new;
+	int			nb_t;
 	char		**tab;
 	char		**map;
 
@@ -31,7 +31,7 @@ int    		main(int ac, char **av)
 		new = in_tab(nb_t, tab);
 		new = ft_add_letters(new);
 		map = ft_map(2);
-		map = resolve_fillit(map, nb_t, new, 2);
+		map = resolve(map, nb_t, new, 2);
 		ft_display_tab(map);
 		free(tab);
 		free(map);

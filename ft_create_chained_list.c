@@ -6,7 +6,7 @@
 /*   By: liton <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 16:11:45 by liton             #+#    #+#             */
-/*   Updated: 2016/12/25 21:05:11 by beerus           ###   ########.fr       */
+/*   Updated: 2016/12/26 18:41:49 by liton            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_ttmn		*in_tab(int nb_t, char **buff)
 
 t_ttmn		*add_right(t_ttmn *list)
 {
-	t_ttmn 		*new;
+	t_ttmn		*new;
 	t_ttmn		*begin;
 
 	begin = list;
